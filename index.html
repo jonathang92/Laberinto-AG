@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="https://pbs.twimg.com/profile_images/2379015037/0veheslhx6ahwww9m1uw.png" />
+    <title>Laberinto - Algoritmo Genético</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+      <h1>Laberinto</h1>
+      <div id="laberinto" class="col-md-6 col-xs-12">
+        <table class=" maze table">
+         <tr>
+           <th> </th>
+           <th>1</th>
+           <th>2</th>
+           <th>3</th>
+           <th>4</th>
+           <th>5</th>
+           <th>6</th>
+           <th>7</th>
+           <th>8</th>
+           <th>9</th>
+           <th>10</th>
+           <th>11</th>
+           <th>12</th>
+           <th>13</th>
+           <th>14</th>
+           <th>15</th>
+         </tr>
+         <tr>
+           <th>A</th>
+           <th name="A1"  class="pared" horizontal="1" vertical="1" ></th>
+           <th name="A2"  class="pared" horizontal="1" vertical="2" ></th>
+           <th name="A3"  class="pared" horizontal="1" vertical="3" ></th>
+           <th name="A4"  class="pared" horizontal="1" vertical="4" ></th>
+           <th name="A5"  class="pared" horizontal="1" vertical="5" ></th>
+           <th name="A6"  class="pared" horizontal="1" vertical="6" ></th>
+           <th name="A7"  class="pared" horizontal="1" vertical="7" ></th>
+           <th name="A8"  class="pared" horizontal="1" vertical="8" ></th>
+           <th name="A9"  class="pared" horizontal="1" vertical="9" ></th>
+           <th name="A10"  class="pared" horizontal="1" vertical="10" ></th>
+           <th name="A11"  class="pared" horizontal="1" vertical="11" ></th>
+           <th name="A12"  class="pared" horizontal="1" vertical="12" ></th>
+           <th name="A13"  class="pared" horizontal="1" vertical="13" ></th>
+           <th name="A14"  class="pared" horizontal="1" vertical="14" ></th>
+           <th name="A15"  class="pared" horizontal="1" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>B</th>
+           <th name="B1"  class="pared" horizontal="2" vertical="1" ></th>
+           <th name="B2" class="inicio"  horizontal="2" vertical="2" ></th>
+           <th name="B3"  class="pared" horizontal="2" vertical="3" ></th>
+           <th name="B4"  horizontal="2" vertical="4" ></th>
+           <th name="B5"  horizontal="2" vertical="5" ></th>
+           <th name="B6"  horizontal="2" vertical="6" ></th>
+           <th name="B7"  class="pared" horizontal="2" vertical="7" ></th>
+           <th name="B8"  horizontal="2" vertical="8" ></th>
+           <th name="B9"  horizontal="2" vertical="9" ></th>
+           <th name="B10"  horizontal="2" vertical="10" ></th>
+           <th name="B11"  horizontal="2" vertical="11" ></th>
+           <th name="B12"  horizontal="2" vertical="12" ></th>
+           <th name="B13"  horizontal="2" vertical="13" ></th>
+           <th name="B14"  horizontal="2" vertical="14" ></th>
+           <th name="B15"  class="pared" horizontal="2" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>C</th>
+           <th name="C1"  class="pared" horizontal="3" vertical="1" ></th>
+           <th name="C2"  horizontal="3" vertical="2" ></th>
+           <th name="C3"  class="pared"  horizontal="3" vertical="3" ></th>
+           <th name="C4"  horizontal="3" vertical="4" ></th>
+           <th name="C5"  class="pared"  horizontal="3" vertical="5" ></th>
+           <th name="C6"  horizontal="3" vertical="6" ></th>
+           <th name="C7" class="pared"  horizontal="3" vertical="7" ></th>
+           <th name="C8"  horizontal="3" vertical="8" ></th>
+           <th name="C9" class="pared"  horizontal="3" vertical="9" ></th>
+           <th name="C10" class="pared"  horizontal="3" vertical="10" ></th>
+           <th name="C11" class="pared"  horizontal="3" vertical="11" ></th>
+           <th name="C12" class="pared"  horizontal="3" vertical="12" ></th>
+           <th name="C13" class="pared"  horizontal="3" vertical="13" ></th>
+           <th name="C14"  horizontal="3" vertical="14" ></th>
+           <th name="C15"  class="pared" horizontal="3" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>D</th>
+           <th name="D1"  class="pared" horizontal="4" vertical="1" ></th>
+           <th name="D2"  horizontal="4" vertical="2" ></th>
+           <th name="D3"  class="pared"  horizontal="4" vertical="3" ></th>
+           <th name="D4"  horizontal="4" vertical="4" ></th>
+           <th name="D5" class="pared"  horizontal="4" vertical="5" ></th>
+           <th name="D6"  horizontal="4" vertical="6" ></th>
+           <th name="D7"  horizontal="4" vertical="7" ></th>
+           <th name="D8"  horizontal="4" vertical="8" ></th>
+           <th name="D9" class="pared"  horizontal="4" vertical="9" ></th>
+           <th name="D10"  horizontal="4" vertical="10" ></th>
+           <th name="D11"  horizontal="4" vertical="11" ></th>
+           <th name="D12"  horizontal="4" vertical="12" ></th>
+           <th name="D13"  horizontal="4" vertical="13" ></th>
+           <th name="D14"  horizontal="4" vertical="14" ></th>
+           <th name="D15"  class="pared" horizontal="4" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>E</th>
+           <th name="E1"  class="pared" horizontal="5" vertical="1" ></th>
+           <th name="E2"  horizontal="5" vertical="2" ></th>
+           <th name="E3" horizontal="5" vertical="3" ></th>
+           <th name="E4"  horizontal="5" vertical="4" ></th>
+           <th name="E5" class="pared"  horizontal="5" vertical="5" ></th>
+           <th name="E6" class="pared"  horizontal="5" vertical="6" ></th>
+           <th name="E7" class="pared"  horizontal="5" vertical="7" ></th>
+           <th name="E8" class="pared"  horizontal="5" vertical="8" ></th>
+           <th name="E9" class="pared"  horizontal="5" vertical="9" ></th>
+           <th name="E10" class="pared"  horizontal="5" vertical="10" ></th>
+           <th name="E11" class="pared"  horizontal="5" vertical="11" ></th>
+           <th name="E12"  horizontal="5" vertical="12" ></th>
+           <th name="E13" class="pared"  horizontal="5" vertical="13" ></th>
+           <th name="E14"  horizontal="5" vertical="14" ></th>
+           <th name="E15"  class="pared" horizontal="5" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>F</th>
+           <th name="F1"  class="pared" horizontal="6" vertical="1" ></th>
+           <th name="F2"  horizontal="6" vertical="2" ></th>
+           <th name="F3" class="pared"  horizontal="6" vertical="3" ></th>
+           <th name="F4"  horizontal="6" vertical="4" ></th>
+           <th name="F5"  horizontal="6" vertical="5" ></th>
+           <th name="F6"  horizontal="6" vertical="6" ></th>
+           <th name="F7"  horizontal="6" vertical="7" ></th>
+           <th name="F8"  horizontal="6" vertical="8" ></th>
+           <th name="F9"  horizontal="6" vertical="9" ></th>
+           <th name="F10"  horizontal="6" vertical="10" ></th>
+           <th name="F11"  horizontal="6" vertical="11" ></th>
+           <th name="F12"  horizontal="6" vertical="12" ></th>
+           <th name="F13" class="pared"  horizontal="6" vertical="13" ></th>
+           <th name="F14"  horizontal="6" vertical="14" ></th>
+           <th name="F15"  class="pared" horizontal="6" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>G</th>
+           <th name="G1"  class="pared" horizontal="7" vertical="1" ></th>
+           <th name="G2"  horizontal="7" vertical="2" ></th>
+           <th name="G3" class="pared"  horizontal="7" vertical="3" ></th>
+           <th name="G4" class="pared"  horizontal="7" vertical="4" ></th>
+           <th name="G5" class="pared"  horizontal="7" vertical="5" ></th>
+           <th name="G6"  horizontal="7" vertical="6" ></th>
+           <th name="G7" class="pared"  horizontal="7" vertical="7" ></th>
+           <th name="G8"  horizontal="7" vertical="8" ></th>
+           <th name="G9" class="pared"  horizontal="7" vertical="9" ></th>
+           <th name="G10" class="pared"  horizontal="7" vertical="10" ></th>
+           <th name="G11" class="pared"  horizontal="7" vertical="11" ></th>
+           <th name="G12" class="pared"  horizontal="7" vertical="12" ></th>
+           <th name="G13" class="pared"  horizontal="7" vertical="13" ></th>
+           <th name="G14"  horizontal="7" vertical="14" ></th>
+           <th name="G15"  class="pared" horizontal="7" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>H</th>
+           <th name="H1"  class="pared" horizontal="8" vertical="1" ></th>
+           <th name="H2"  horizontal="8" vertical="2" ></th>
+           <th name="H3" class="pared"  horizontal="8" vertical="3" ></th>
+           <th name="H4"  horizontal="8" vertical="4" ></th>
+           <th name="H5" class="pared"  horizontal="8" vertical="5" ></th>
+           <th name="H6"  horizontal="8" vertical="6" ></th>
+           <th name="H7" class="pared"  horizontal="8" vertical="7" ></th>
+           <th name="H8"  horizontal="8" vertical="8" ></th>
+           <th name="H9"  horizontal="8" vertical="9" ></th>
+           <th name="H10"  horizontal="8" vertical="10" ></th>
+           <th name="H11"  horizontal="8" vertical="11" ></th>
+           <th name="H12"  horizontal="8" vertical="12" ></th>
+           <th name="H13"  horizontal="8" vertical="13" ></th>
+           <th name="H14"  horizontal="8" vertical="14" ></th>
+           <th name="H15"  class="pared" horizontal="8" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>I</th>
+           <th name="I1"  class="pared" horizontal="9" vertical="1" ></th>
+           <th name="I2"  horizontal="9" vertical="2" ></th>
+           <th name="I3" class="pared"  horizontal="9" vertical="3" ></th>
+           <th name="I4"  horizontal="9" vertical="4" ></th>
+           <th name="I5" class="pared"  horizontal="9" vertical="5" ></th>
+           <th name="I6"  horizontal="9" vertical="6" ></th>
+           <th name="I7" class="pared"  horizontal="9" vertical="7" ></th>
+           <th name="I8" class="pared"  horizontal="9" vertical="8" ></th>
+           <th name="I9" class="pared"  horizontal="9" vertical="9" ></th>
+           <th name="I10" class="pared"  horizontal="9" vertical="10" ></th>
+           <th name="I11" class="pared"  horizontal="9" vertical="11" ></th>
+           <th name="I12" class="pared"  horizontal="9" vertical="12" ></th>
+           <th name="I13" class="pared"  horizontal="9" vertical="13" ></th>
+           <th name="I14"  horizontal="9" vertical="14" ></th>
+           <th name="I15"  class="pared" horizontal="9" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>J</th>
+           <th name="J1"  class="pared" horizontal="10" vertical="1" ></th>
+           <th name="J2"  horizontal="10" vertical="2" ></th>
+           <th name="J3"  horizontal="10" vertical="3" ></th>
+           <th name="J4"  horizontal="10" vertical="4" ></th>
+           <th name="J5" class="pared"  horizontal="10" vertical="5" ></th>
+           <th name="J6"  horizontal="10" vertical="6" ></th>
+           <th name="J7"  horizontal="10" vertical="7" ></th>
+           <th name="J8"  horizontal="10" vertical="8" ></th>
+           <th name="J9"  horizontal="10" vertical="9" ></th>
+           <th name="J10"  horizontal="10" vertical="10" ></th>
+           <th name="J11" class="pared"  horizontal="10" vertical="11" ></th>
+           <th name="J12"  horizontal="10" vertical="12" ></th>
+           <th name="J13" class="pared"  horizontal="10" vertical="13" ></th>
+           <th name="J14"  horizontal="10" vertical="14" ></th>
+           <th name="J15"  class="pared" horizontal="10" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>K</th>
+           <th name="K1"  class="pared" horizontal="11" vertical="1" ></th>
+           <th name="K2"  horizontal="11" vertical="2" ></th>
+           <th name="K3" class="pared"  horizontal="11" vertical="3" ></th>
+           <th name="K4"  horizontal="11" vertical="4" ></th>
+           <th name="K5" class="pared"  horizontal="11" vertical="5" ></th>
+           <th name="K6" class="pared"  horizontal="11" vertical="6" ></th>
+           <th name="K7" class="pared"  horizontal="11" vertical="7" ></th>
+           <th name="K8" class="pared"  horizontal="11" vertical="8" ></th>
+           <th name="K9" class="pared"  horizontal="11" vertical="9" ></th>
+           <th name="K10"  horizontal="11" vertical="10" ></th>
+           <th name="K11" class="pared"  horizontal="11" vertical="11" ></th>
+           <th name="K12"  horizontal="11" vertical="12" ></th>
+           <th name="K13" class="pared"  horizontal="11" vertical="13" ></th>
+           <th name="K14"  horizontal="11" vertical="14" ></th>
+           <th name="K15"  class="pared" horizontal="11" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>L</th>
+           <th name="L1"  class="pared" horizontal="12" vertical="1" ></th>
+           <th name="L2"  horizontal="12" vertical="2" ></th>
+           <th name="L3" class="pared"  horizontal="12" vertical="3" ></th>
+           <th name="L4"  horizontal="12" vertical="4" ></th>
+           <th name="L5"  horizontal="12" vertical="5" ></th>
+           <th name="L6"  horizontal="12" vertical="6" ></th>
+           <th name="L7"  horizontal="12" vertical="7" ></th>
+           <th name="L8"  horizontal="12" vertical="8" ></th>
+           <th name="L9"  horizontal="12" vertical="9" ></th>
+           <th name="L10"  horizontal="12" vertical="10" ></th>
+           <th name="L11" class="pared"  horizontal="12" vertical="11" ></th>
+           <th name="L12"  horizontal="12" vertical="12" ></th>
+           <th name="L13" class="pared"  horizontal="12" vertical="13" ></th>
+           <th name="L14"  horizontal="12" vertical="14" ></th>
+           <th name="L15"  class="pared" horizontal="12" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>M</th>
+           <th name="M1" class="pared" horizontal="13" vertical="1" ></th>
+           <th name="M2"  horizontal="13" vertical="2" ></th>
+           <th name="M3" class="pared"  horizontal="13" vertical="3" ></th>
+           <th name="M4" class="pared"  horizontal="13" vertical="4" ></th>
+           <th name="M5" class="pared"  horizontal="13" vertical="5" ></th>
+           <th name="M6"  horizontal="13" vertical="6" ></th>
+           <th name="M7" class="pared"  horizontal="13" vertical="7" ></th>
+           <th name="M8" class="pared"  horizontal="13" vertical="8" ></th>
+           <th name="M9" class="pared"  horizontal="13" vertical="9" ></th>
+           <th name="M10" class="pared"  horizontal="13" vertical="10" ></th>
+           <th name="M11" class="pared"  horizontal="13" vertical="11" ></th>
+           <th name="M12"  horizontal="13" vertical="12" ></th>
+           <th name="M13" class="pared"  horizontal="13" vertical="13" ></th>
+           <th name="M14"  horizontal="13" vertical="14" ></th>
+           <th name="M15"  class="pared" horizontal="13" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>N</th>
+           <th name="N1" class="pared" horizontal="14" vertical="1" ></th>
+           <th name="N2"  horizontal="14" vertical="2" ></th>
+           <th name="N3"  horizontal="14" vertical="3" ></th>
+           <th name="N4"  horizontal="14" vertical="4" ></th>
+           <th name="N5" class="pared"  horizontal="14" vertical="5" ></th>
+           <th name="N6"  horizontal="14" vertical="6" ></th>
+           <th name="N7"  horizontal="14" vertical="7" ></th>
+           <th name="N8"  horizontal="14" vertical="8" ></th>
+           <th name="N9"  horizontal="14" vertical="9" ></th>
+           <th name="N10"  horizontal="14" vertical="10" ></th>
+           <th name="N11"  horizontal="14" vertical="11" ></th>
+           <th name="N12"  horizontal="14" vertical="12" ></th>
+           <th name="N13" class="pared"  horizontal="14" vertical="13" ></th>
+           <th name="N14"  horizontal="14" vertical="14" ></th>
+           <th name="N15"  class="pared" horizontal="14" vertical="15" ></th>
+         </tr>
+         <tr>
+           <th>O</th>
+           <th name="O1"  class="pared" horizontal="15" vertical="1" ></th>
+           <th name="O2"  class="pared" horizontal="15" vertical="2" ></th>
+           <th name="O3"  class="pared" horizontal="15" vertical="3" ></th>
+           <th name="O4"  class="pared" horizontal="15" vertical="4" ></th>
+           <th name="O5"  class="pared" horizontal="15" vertical="5" ></th>
+           <th name="O6"  class="pared" horizontal="15" vertical="6" ></th>
+           <th name="O7"  class="pared" horizontal="15" vertical="7" ></th>
+           <th name="O8"  class="pared" horizontal="15" vertical="8" ></th>
+           <th name="O9"  class="pared" horizontal="15" vertical="9" ></th>
+           <th name="O10"  class="pared" horizontal="15" vertical="10" ></th>
+           <th name="O11"  class="pared" horizontal="15" vertical="11" ></th>
+           <th name="O12"  class="pared" horizontal="15" vertical="12" ></th>
+           <th name="O13"  class="pared" horizontal="15" vertical="13" ></th>
+           <th name="O14"  class="pared" horizontal="15" vertical="14" ></th>
+           <th name="O15"  class="pared" horizontal="15" vertical="15" ></th>
+         </tr>
+       </table>
+      </div>
+      <div id="resultado" class="col-md-6 clearfix">
+        <h3>Genoma</h3>
+        <!-- <ul class="genoma">
+          <li>A13</li>
+          <li>A13</li>
+          <li>A13</li>
+          <li>A13</li>
+          <li>A13</li>
+        </ul>
+        <ul class="genoma resultado">
+          <li>A13</li>
+          <li>A13</li>
+          <li>A13</li>
+          <li>A13</li>
+          <li>A13</li>
+        </ul> -->
+      </div>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="js/laberinto.js"></script>
+  </body>
+</html>

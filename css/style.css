@@ -1,0 +1,60 @@
+body{
+
+}
+h1{
+  font-size: 18pt;
+  text-align: center;
+}
+.maze{
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+}
+.maze th{
+    border-color: #fff;
+    font-size: 50%;
+}
+
+.pared{
+  background-color: #000000;
+  border-color: black !important;
+}
+.explorado{
+  background-color: #FFFFAA;
+  border-color: #ffa !important;
+}
+.inicio{
+  background-color: #008000;
+  border-color: #008000 !important;
+}
+.fin{
+  background-color: #FF0000;
+  border-color: #FF0000 !important;
+}
+.genoma {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.genoma li {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 3px;
+    text-decoration: none;
+    border: 1px solid;
+    background-color: #ffa;
+    font-weight: bold;
+}
+
+.resultado li {
+  background-color: #06ff1b;
+}
+.seleccionado li
+{
+  background-color: #f60 !important;
+}
